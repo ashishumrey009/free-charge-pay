@@ -1,21 +1,20 @@
 import React from 'react';
 import {Card}  from 'semantic-ui-react'
- import CartSummary from './cartSummery'
+ import CharacterItem from './CharacterItem'
 function ProductList({products}) {
     console.log(products)
 
   function mapProductsToItems(products){
-   
+  // console.log(products)
     return products?products.map(product=>({
-        header:product.name,
-        description:product.description,
-        image:product.image,
-        meta:`₹${product.price}`,
+        header:product.vehicle_type_code1,
+        description:product.vehicle_type_code2,
+        meta:`Crash Time :${product.crash_time}`,
         color:'teal',
         fluid:true,
-        childkey:product._id,
+        childkey:product.collision_id,
        extra:(
-           <CartSummary product={product} />
+          <CharacterItem product={product} />
         )
     })):null
   
